@@ -25,11 +25,13 @@ void notas();
 
 
 int choice = 0;
+float saldo = 8996.88;
+float quanto;
+float saque;
+float newvalue;
 
 
 int main(){
-
-menu(){
 
 
 /*
@@ -43,60 +45,75 @@ menu(){
 */
 
 
+    printf("///*** - BEM VINDO AO TILAMBUBANCO - ***///\n-----------------------------------------------\n");
+
 do
 {
-    printf("///*** - BEM VINDO AO TILAMBUBANCO - ***///");
 
-    printf("///*** - O que deseja fazer? - ***///");
 
-    printf("Ver Saldo - 1 ");
-    printf("Depositar - 2 ");
-    printf("Sacar - 3 ");
-    printf("Sair - 4 ");
+    printf("\n///*** - O que deseja fazer? - ***///\n\n");
+
+    printf("1 - VER SALDO\n");
+    printf("2 - DEPOSITAR\n");
+    printf("3 - SACAR\n");
+    printf("4 - SAIR\n");
+    printf("\nSUA ESCOLHA:");
     scanf(" %d", &choice);
 
 
     switch (choice)
     {
     case 1:
-        printf("Seu saldo é: R$ %f", saldo);
+        printf("--------------------------\n\n");
+        printf("Seu saldo é: R$ %.2f \n\n-----------------------------------\n\n", saldo);
+        printf("VOLTANDO AO MENU INICIAL...\n\n-------------------------------");
         break;
 
         
     case 2:
-        printf("Quanto você deseja depositar?");
-        scanf("%f", &quanto);
+        printf("\nQuanto você deseja depositar?\nDIGITE O VALOR:");
+        scanf(" %f", &quanto);
 
         float newvalue = quanto + saldo;
 
-        prinft("Deposito realizado com sucesso!\n Seu saldo atualizado é: R$: %f", newvalue);
+        printf("-----------------\nDEPOSITO REALIZADO COM SUCESSO!\n\nSeu saldo atualizado é: R$: %.2f\n----------------------------", newvalue);
+        printf("\nVOLTANDO AO MENU INICIAL...\n-------------------------------");
         break;
+
+
+
 
         case 3:
         printf("Quanto você deseja sacar?");
-        scanf("%f", saque);
+        scanf(" %f", &saque);
 
 
-            do
-            {
-                
+            if(saque > saldo){
                 printf("SALDO INSUFICIENTE, POR FAVOR, DIGITE UM NOVO VALOR\n");
                 printf("Quanto você deseja sacar?");
-                scanf("%f", saque);
+                scanf("%f", &saque);
+            }
                 
+            else{
 
-
-            } while (saque > saldo);
-            
-        notas(){
-            int nota100 = saque / 100;
+                int nota100, nota50, nota20, nota10, nota5, nota2;
+            nota100 = saque / 100;
             nota50 = saque - (100* nota100) / 50;
             nota20 = saque - (100* nota100) - (50* nota50) / 20;
             nota10 = saque - (100* nota100) - (50* nota50) - (20* nota20) / 10;
             nota5 = saque - (100* nota100) - (50* nota50) - (20* nota20) - (10* nota20) / 5;
             nota2 = saque - (100* nota100) - (50* nota50) - (20* nota20) - (10* nota20) - (5* nota5) / 2;
+
+            }    
+                
+
+
+            
+            
+        
+            
     
-        }
+        
         
 printf("Você receberá %d notas de 100\n %d Nots de 50\n %d notas de 20\n %d notas de 10 %d notas de 5 e %d notas de 2!", nota100, nota50, nota20, nota10, nota5, nota2);
 
@@ -106,7 +123,11 @@ printf("Você receberá %d notas de 100\n %d Nots de 50\n %d notas de 20\n %d no
 
 
 
-    default: printf("Valor errado, digite novamente!")
+
+
+
+
+    default: printf("Valor errado, digite novamente!");
         break;
     }
     
@@ -116,8 +137,6 @@ printf("Você receberá %d notas de 100\n %d Nots de 50\n %d notas de 20\n %d no
 
 
 
-
-};
 
 
 
